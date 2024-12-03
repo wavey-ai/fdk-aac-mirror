@@ -931,9 +931,6 @@ static AACENC_ERROR FDKaacEnc_AdjustEncSettings(HANDLE_AACENCODER hAacEncoder,
           (config->userTpType != TT_UNKNOWN) ? config->userTpType : TT_MP4_LOAS;
       hAacConfig->framelength =
           (config->userFramelength != (UINT)-1) ? config->userFramelength : 512;
-
-      hAacConfig->framelength = 480;
-
       if (hAacConfig->framelength != 512 && hAacConfig->framelength != 480) {
         return AACENC_INVALID_CONFIG;
       }
@@ -967,6 +964,7 @@ static AACENC_ERROR FDKaacEnc_AdjustEncSettings(HANDLE_AACENCODER hAacEncoder,
           return AACENC_INVALID_CONFIG;
       }
 
+      hAacConfig->framelength = 480;
       if (hAacConfig->framelength != 512 && hAacConfig->framelength != 480 &&
           hAacConfig->framelength != 256 && hAacConfig->framelength != 240 &&
           hAacConfig->framelength != 128 && hAacConfig->framelength != 120) {
